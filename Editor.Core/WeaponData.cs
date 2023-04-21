@@ -2,18 +2,11 @@
 
 namespace Editor.Core
 {
-    public enum Characters
-    {
-        Cloud, Barret, Tifa, Aeris, RedXIII, Yuffie, CaitSith, Vincent,
-        Cid, YoungCloud, Sephiroth
-    }
-
-    public class WeaponData
+    public class WeaponData : ItemData
     {
         private int materiaSlots;
 
-        public byte HexValue { get; }
-        public string WeaponName { get; }
+        public Characters EquipableBy { get; }
         public int MateriaSlots
         {
             get { return materiaSlots; }
@@ -21,16 +14,16 @@ namespace Editor.Core
             {
                 if (value < 0 || value > 8)
                 {
-                    throw new ArgumentOutOfRangeException("Invalid materia slot amount.");
+                    throw new ArgumentOutOfRangeException(nameof(MateriaSlots));
                 }
                 materiaSlots = value;
             }
         }
 
-        public WeaponData(byte hexValue, string name, int materiaSlots)
+        public WeaponData(byte hexValue, string name, Characters equipableBy, int materiaSlots)
+            :base (hexValue, name)
         {
-            HexValue = hexValue;
-            WeaponName = name;
+            EquipableBy = equipableBy;
             MateriaSlots = materiaSlots;
         }
     }

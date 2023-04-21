@@ -7,9 +7,9 @@ namespace Editor.Core
         public const int CHAR_DATA_LENGTH = 132;
         private const int MATERIA_OFFSET = 64;
         private byte[] data = new byte[CHAR_DATA_LENGTH];
-        private WeaponData weapon;
-        private ArmorData armor;
-        private AccessoryData accessory;
+        private WeaponData? weapon;
+        private ArmorData? armor;
+        private AccessoryData? accessory;
 
         public byte ID
         {
@@ -105,7 +105,7 @@ namespace Editor.Core
             get { return data[15]; }
             set { data[15] = value; }
         }
-        public WeaponData Weapon
+        public WeaponData? Weapon
         {
             get { return weapon; }
             set
@@ -117,7 +117,7 @@ namespace Editor.Core
                 }
             }
         }
-        public ArmorData Armor
+        public ArmorData? Armor
         {
             get { return armor; }
             set
@@ -129,7 +129,7 @@ namespace Editor.Core
                 }
             }
         }
-        public AccessoryData Accessory
+        public AccessoryData? Accessory
         {
             get { return accessory; }
             set
@@ -205,12 +205,12 @@ namespace Editor.Core
         }
         public EquippedMateria[] Materia { get; private set; } = new EquippedMateria[MateriaData.MATERIA_SLOTS];
 
-        public CharData(int[] data)
+        public CharData(byte[] data)
         {
             ReadData(data);
         }
 
-        public void ReadData(int[] data)
+        public void ReadData(byte[] data)
         {
             if (data.Length != CHAR_DATA_LENGTH)
             {
@@ -218,10 +218,7 @@ namespace Editor.Core
             }
 
             //copy data to self
-            for (int i = 0; i < CHAR_DATA_LENGTH; ++i)
-            {
-                this.data[i] = (byte)data[i];
-            }
+            Array.Copy(data, this.data, CHAR_DATA_LENGTH);
 
             //get equipment data
             Weapon = GameData.GetWeaponByHexValue(data[28]);
@@ -231,10 +228,10 @@ namespace Editor.Core
             {
                 var temp = new byte[4]
                 {
-                    (byte)data[MATERIA_OFFSET + (i * 4)],
-                    (byte)data[MATERIA_OFFSET + (i * 4) + 1],
-                    (byte)data[MATERIA_OFFSET + (i * 4) + 2],
-                    (byte)data[MATERIA_OFFSET + (i * 4) + 3]
+                    data[MATERIA_OFFSET + (i * 4)],
+                    data[MATERIA_OFFSET + (i * 4) + 1],
+                    data[MATERIA_OFFSET + (i * 4) + 2],
+                    data[MATERIA_OFFSET + (i * 4) + 3]
                 };
                 Materia[i] = new EquippedMateria(temp);
             }
@@ -255,6 +252,17 @@ namespace Editor.Core
                 }
             }
             return dataCopy;
+        }
+
+        public bool HasDifferences(CharData other)
+        {
+            var temp1 = GetByteArray();
+            var temp2 = other.GetByteArray();
+            for (int i = 0; i < CHAR_DATA_LENGTH; ++i)
+            {
+                if (temp1[i] != temp2[i]) { return true; }
+            }
+            return false;
         }
     }
 }

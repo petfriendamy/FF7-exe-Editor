@@ -30,6 +30,11 @@
         {
             components = new System.ComponentModel.Container();
             groupBoxCaitSith = new GroupBox();
+            checkBoxCSAllowAll = new CheckBox();
+            numericCSLimitLevel = new NumericUpDown();
+            labelCSLimitLevel = new Label();
+            labelCSLimitBar = new Label();
+            trackBarCSLimitBar = new TrackBar();
             numericCSID = new NumericUpDown();
             labelCSID = new Label();
             numericCSstr = new NumericUpDown();
@@ -83,20 +88,25 @@
             numericCSLevel = new NumericUpDown();
             labelCSLevel = new Label();
             groupBoxVincent = new GroupBox();
+            checkBoxVAllowAll = new CheckBox();
+            numericVLimitLevel = new NumericUpDown();
+            labelVLimitLevel = new Label();
+            labelVLimitBar = new Label();
+            trackBarVLimitBar = new TrackBar();
             numericVID = new NumericUpDown();
             labelVID = new Label();
             numericVstr = new NumericUpDown();
-            label1 = new Label();
+            labelVStr = new Label();
             numericVspr = new NumericUpDown();
-            label2 = new Label();
+            labelVSpr = new Label();
             numericVmag = new NumericUpDown();
-            label3 = new Label();
+            labelVMag = new Label();
             numericVvit = new NumericUpDown();
-            label4 = new Label();
+            labelVVit = new Label();
             numericVlck = new NumericUpDown();
-            label5 = new Label();
+            labelVLck = new Label();
             numericVdex = new NumericUpDown();
-            label6 = new Label();
+            labelVDex = new Label();
             labelVMPs = new Label();
             numericVmaxMana = new NumericUpDown();
             numericVcurrMana = new NumericUpDown();
@@ -161,9 +171,40 @@
             pictureBoxBarret = new PictureBox();
             textBoxCloud = new TextBox();
             pictureBoxCloud = new PictureBox();
+            tabPageShopData = new TabPage();
+            groupBoxShopInventory = new GroupBox();
+            comboBoxShopItem10 = new ComboBox();
+            comboBoxShopItem9 = new ComboBox();
+            comboBoxShopItem8 = new ComboBox();
+            comboBoxShopItem7 = new ComboBox();
+            comboBoxShopItem6 = new ComboBox();
+            comboBoxShopItem5 = new ComboBox();
+            comboBoxShopItem4 = new ComboBox();
+            comboBoxShopItem3 = new ComboBox();
+            comboBoxShopItem2 = new ComboBox();
+            comboBoxShopItem1 = new ComboBox();
+            labelShopItems = new Label();
+            numericShopItemCount = new NumericUpDown();
+            labelShopItemCount = new Label();
+            comboBoxShopType = new ComboBox();
+            labelShopType = new Label();
+            comboBoxShopIndex = new ComboBox();
+            labelShopIndex = new Label();
+            numericMateriaPrice = new NumericUpDown();
+            labelMateriaPrice = new Label();
+            labelMateriaPrices = new Label();
+            listBoxMateriaPrices = new ListBox();
+            numericMateriaAPPriceMultiplier = new NumericUpDown();
+            labelMateriaAPPriceMultiplier = new Label();
+            numericItemPrice = new NumericUpDown();
+            labelItemPrice = new Label();
+            labelItemPrices = new Label();
+            listBoxItemPrices = new ListBox();
             buttonHext = new Button();
             toolTip = new ToolTip(components);
             groupBoxCaitSith.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericCSLimitLevel).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)trackBarCSLimitBar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericCSID).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericCSstr).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericCSspr).BeginInit();
@@ -179,6 +220,8 @@
             ((System.ComponentModel.ISupportInitialize)numericCSAP).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericCSLevel).BeginInit();
             groupBoxVincent.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericVLimitLevel).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)trackBarVLimitBar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericVID).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericVstr).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericVspr).BeginInit();
@@ -206,11 +249,22 @@
             ((System.ComponentModel.ISupportInitialize)pictureBoxTifa).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxBarret).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxCloud).BeginInit();
+            tabPageShopData.SuspendLayout();
+            groupBoxShopInventory.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericShopItemCount).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericMateriaPrice).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericMateriaAPPriceMultiplier).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericItemPrice).BeginInit();
             SuspendLayout();
             // 
             // groupBoxCaitSith
             // 
             groupBoxCaitSith.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            groupBoxCaitSith.Controls.Add(checkBoxCSAllowAll);
+            groupBoxCaitSith.Controls.Add(numericCSLimitLevel);
+            groupBoxCaitSith.Controls.Add(labelCSLimitLevel);
+            groupBoxCaitSith.Controls.Add(labelCSLimitBar);
+            groupBoxCaitSith.Controls.Add(trackBarCSLimitBar);
             groupBoxCaitSith.Controls.Add(numericCSID);
             groupBoxCaitSith.Controls.Add(labelCSID);
             groupBoxCaitSith.Controls.Add(numericCSstr);
@@ -251,13 +305,66 @@
             groupBoxCaitSith.TabStop = false;
             groupBoxCaitSith.Text = "Cait Sith initial data";
             // 
+            // checkBoxCSAllowAll
+            // 
+            checkBoxCSAllowAll.AutoSize = true;
+            checkBoxCSAllowAll.Location = new Point(552, 25);
+            checkBoxCSAllowAll.Name = "checkBoxCSAllowAll";
+            checkBoxCSAllowAll.Size = new Size(71, 19);
+            checkBoxCSAllowAll.TabIndex = 36;
+            checkBoxCSAllowAll.Text = "Allow all";
+            checkBoxCSAllowAll.UseVisualStyleBackColor = true;
+            checkBoxCSAllowAll.CheckedChanged += checkBoxCSAllowAll_CheckedChanged;
+            // 
+            // numericCSLimitLevel
+            // 
+            numericCSLimitLevel.Location = new Point(213, 209);
+            numericCSLimitLevel.Maximum = new decimal(new int[] { 4, 0, 0, 0 });
+            numericCSLimitLevel.Name = "numericCSLimitLevel";
+            numericCSLimitLevel.Size = new Size(64, 23);
+            numericCSLimitLevel.TabIndex = 35;
+            numericCSLimitLevel.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            numericCSLimitLevel.ValueChanged += numericCSLimitLevel_ValueChanged;
+            // 
+            // labelCSLimitLevel
+            // 
+            labelCSLimitLevel.AutoSize = true;
+            labelCSLimitLevel.Location = new Point(213, 191);
+            labelCSLimitLevel.Name = "labelCSLimitLevel";
+            labelCSLimitLevel.Size = new Size(64, 15);
+            labelCSLimitLevel.TabIndex = 34;
+            labelCSLimitLevel.Text = "Limit level:";
+            // 
+            // labelCSLimitBar
+            // 
+            labelCSLimitBar.AutoSize = true;
+            labelCSLimitBar.Location = new Point(3, 183);
+            labelCSLimitBar.Name = "labelCSLimitBar";
+            labelCSLimitBar.Size = new Size(57, 15);
+            labelCSLimitBar.TabIndex = 33;
+            labelCSLimitBar.Text = "Limit bar:";
+            // 
+            // trackBarCSLimitBar
+            // 
+            trackBarCSLimitBar.BackColor = SystemColors.Window;
+            trackBarCSLimitBar.LargeChange = 51;
+            trackBarCSLimitBar.Location = new Point(4, 201);
+            trackBarCSLimitBar.Maximum = 255;
+            trackBarCSLimitBar.Name = "trackBarCSLimitBar";
+            trackBarCSLimitBar.Size = new Size(203, 45);
+            trackBarCSLimitBar.SmallChange = 5;
+            trackBarCSLimitBar.TabIndex = 32;
+            trackBarCSLimitBar.TickFrequency = 51;
+            trackBarCSLimitBar.TickStyle = TickStyle.TopLeft;
+            trackBarCSLimitBar.Scroll += trackBarCSLimitBar_Scroll;
+            // 
             // numericCSID
             // 
-            numericCSID.Location = new Point(58, 25);
+            numericCSID.Location = new Point(38, 24);
             numericCSID.Margin = new Padding(4, 3, 4, 3);
             numericCSID.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
             numericCSID.Name = "numericCSID";
-            numericCSID.Size = new Size(76, 23);
+            numericCSID.Size = new Size(55, 23);
             numericCSID.TabIndex = 0;
             numericCSID.Value = new decimal(new int[] { 1, 0, 0, 0 });
             numericCSID.ValueChanged += numericCSID_ValueChanged;
@@ -265,7 +372,7 @@
             // labelCSID
             // 
             labelCSID.AutoSize = true;
-            labelCSID.Location = new Point(30, 27);
+            labelCSID.Location = new Point(10, 26);
             labelCSID.Margin = new Padding(4, 0, 4, 0);
             labelCSID.Name = "labelCSID";
             labelCSID.Size = new Size(21, 15);
@@ -274,11 +381,11 @@
             // 
             // numericCSstr
             // 
-            numericCSstr.Location = new Point(58, 147);
+            numericCSstr.Location = new Point(38, 119);
             numericCSstr.Margin = new Padding(4, 3, 4, 3);
             numericCSstr.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             numericCSstr.Name = "numericCSstr";
-            numericCSstr.Size = new Size(76, 23);
+            numericCSstr.Size = new Size(50, 23);
             numericCSstr.TabIndex = 6;
             numericCSstr.Value = new decimal(new int[] { 1, 0, 0, 0 });
             numericCSstr.ValueChanged += numericCSstr_ValueChanged;
@@ -286,7 +393,7 @@
             // labelCSstr
             // 
             labelCSstr.AutoSize = true;
-            labelCSstr.Location = new Point(26, 149);
+            labelCSstr.Location = new Point(6, 121);
             labelCSstr.Margin = new Padding(4, 0, 4, 0);
             labelCSstr.Name = "labelCSstr";
             labelCSstr.Size = new Size(24, 15);
@@ -295,11 +402,11 @@
             // 
             // numericCSspr
             // 
-            numericCSspr.Location = new Point(201, 147);
+            numericCSspr.Location = new Point(38, 150);
             numericCSspr.Margin = new Padding(4, 3, 4, 3);
             numericCSspr.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             numericCSspr.Name = "numericCSspr";
-            numericCSspr.Size = new Size(76, 23);
+            numericCSspr.Size = new Size(50, 23);
             numericCSspr.TabIndex = 7;
             numericCSspr.Value = new decimal(new int[] { 1, 0, 0, 0 });
             numericCSspr.ValueChanged += numericCSspr_ValueChanged;
@@ -307,7 +414,7 @@
             // labelCSspr
             // 
             labelCSspr.AutoSize = true;
-            labelCSspr.Location = new Point(167, 149);
+            labelCSspr.Location = new Point(3, 152);
             labelCSspr.Margin = new Padding(4, 0, 4, 0);
             labelCSspr.Name = "labelCSspr";
             labelCSspr.Size = new Size(27, 15);
@@ -316,11 +423,11 @@
             // 
             // numericCSmag
             // 
-            numericCSmag.Location = new Point(58, 208);
+            numericCSmag.Location = new Point(227, 119);
             numericCSmag.Margin = new Padding(4, 3, 4, 3);
             numericCSmag.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             numericCSmag.Name = "numericCSmag";
-            numericCSmag.Size = new Size(76, 23);
+            numericCSmag.Size = new Size(50, 23);
             numericCSmag.TabIndex = 10;
             numericCSmag.Value = new decimal(new int[] { 1, 0, 0, 0 });
             numericCSmag.ValueChanged += numericCSmag_ValueChanged;
@@ -328,7 +435,7 @@
             // labelCSmag
             // 
             labelCSmag.AutoSize = true;
-            labelCSmag.Location = new Point(16, 210);
+            labelCSmag.Location = new Point(188, 121);
             labelCSmag.Margin = new Padding(4, 0, 4, 0);
             labelCSmag.Name = "labelCSmag";
             labelCSmag.Size = new Size(34, 15);
@@ -337,11 +444,11 @@
             // 
             // numericCSvit
             // 
-            numericCSvit.Location = new Point(58, 177);
+            numericCSvit.Location = new Point(129, 119);
             numericCSvit.Margin = new Padding(4, 3, 4, 3);
             numericCSvit.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             numericCSvit.Name = "numericCSvit";
-            numericCSvit.Size = new Size(76, 23);
+            numericCSvit.Size = new Size(50, 23);
             numericCSvit.TabIndex = 8;
             numericCSvit.Value = new decimal(new int[] { 1, 0, 0, 0 });
             numericCSvit.ValueChanged += numericCSvit_ValueChanged;
@@ -349,7 +456,7 @@
             // labelCSvit
             // 
             labelCSvit.AutoSize = true;
-            labelCSvit.Location = new Point(27, 179);
+            labelCSvit.Location = new Point(98, 121);
             labelCSvit.Margin = new Padding(4, 0, 4, 0);
             labelCSvit.Name = "labelCSvit";
             labelCSvit.Size = new Size(24, 15);
@@ -358,11 +465,11 @@
             // 
             // numericCSlck
             // 
-            numericCSlck.Location = new Point(201, 208);
+            numericCSlck.Location = new Point(227, 150);
             numericCSlck.Margin = new Padding(4, 3, 4, 3);
             numericCSlck.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             numericCSlck.Name = "numericCSlck";
-            numericCSlck.Size = new Size(76, 23);
+            numericCSlck.Size = new Size(50, 23);
             numericCSlck.TabIndex = 11;
             numericCSlck.Value = new decimal(new int[] { 1, 0, 0, 0 });
             numericCSlck.ValueChanged += numericCSlck_ValueChanged;
@@ -370,7 +477,7 @@
             // labelCSlck
             // 
             labelCSlck.AutoSize = true;
-            labelCSlck.Location = new Point(166, 208);
+            labelCSlck.Location = new Point(194, 152);
             labelCSlck.Margin = new Padding(4, 0, 4, 0);
             labelCSlck.Name = "labelCSlck";
             labelCSlck.Size = new Size(28, 15);
@@ -379,11 +486,11 @@
             // 
             // numericCSdex
             // 
-            numericCSdex.Location = new Point(201, 177);
+            numericCSdex.Location = new Point(129, 150);
             numericCSdex.Margin = new Padding(4, 3, 4, 3);
             numericCSdex.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             numericCSdex.Name = "numericCSdex";
-            numericCSdex.Size = new Size(76, 23);
+            numericCSdex.Size = new Size(50, 23);
             numericCSdex.TabIndex = 9;
             numericCSdex.Value = new decimal(new int[] { 1, 0, 0, 0 });
             numericCSdex.ValueChanged += numericCSdex_ValueChanged;
@@ -391,7 +498,7 @@
             // labelCSdex
             // 
             labelCSdex.AutoSize = true;
-            labelCSdex.Location = new Point(164, 179);
+            labelCSdex.Location = new Point(92, 152);
             labelCSdex.Margin = new Padding(4, 0, 4, 0);
             labelCSdex.Name = "labelCSdex";
             labelCSdex.Size = new Size(30, 15);
@@ -401,7 +508,7 @@
             // labelCSMPs
             // 
             labelCSMPs.AutoSize = true;
-            labelCSMPs.Location = new Point(156, 89);
+            labelCSMPs.Location = new Point(148, 87);
             labelCSMPs.Margin = new Padding(4, 0, 4, 0);
             labelCSMPs.Name = "labelCSMPs";
             labelCSMPs.Size = new Size(12, 15);
@@ -410,23 +517,23 @@
             // 
             // numericCSmaxMana
             // 
-            numericCSmaxMana.Location = new Point(177, 87);
+            numericCSmaxMana.Location = new Point(169, 85);
             numericCSmaxMana.Margin = new Padding(4, 3, 4, 3);
             numericCSmaxMana.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
             numericCSmaxMana.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numericCSmaxMana.Name = "numericCSmaxMana";
-            numericCSmaxMana.Size = new Size(100, 23);
+            numericCSmaxMana.Size = new Size(108, 23);
             numericCSmaxMana.TabIndex = 5;
             numericCSmaxMana.Value = new decimal(new int[] { 1, 0, 0, 0 });
             numericCSmaxMana.ValueChanged += numericCSmaxMana_ValueChanged;
             // 
             // numericCScurrMana
             // 
-            numericCScurrMana.Location = new Point(59, 85);
+            numericCScurrMana.Location = new Point(38, 84);
             numericCScurrMana.Margin = new Padding(4, 3, 4, 3);
             numericCScurrMana.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
             numericCScurrMana.Name = "numericCScurrMana";
-            numericCScurrMana.Size = new Size(90, 23);
+            numericCScurrMana.Size = new Size(102, 23);
             numericCScurrMana.TabIndex = 4;
             numericCScurrMana.Value = new decimal(new int[] { 1, 0, 0, 0 });
             numericCScurrMana.ValueChanged += numericCScurrMana_ValueChanged;
@@ -434,7 +541,7 @@
             // labelCSMP
             // 
             labelCSMP.AutoSize = true;
-            labelCSMP.Location = new Point(23, 89);
+            labelCSMP.Location = new Point(3, 88);
             labelCSMP.Margin = new Padding(4, 0, 4, 0);
             labelCSMP.Name = "labelCSMP";
             labelCSMP.Size = new Size(28, 15);
@@ -444,7 +551,7 @@
             // labelCSHPs
             // 
             labelCSHPs.AutoSize = true;
-            labelCSHPs.Location = new Point(156, 58);
+            labelCSHPs.Location = new Point(148, 56);
             labelCSHPs.Margin = new Padding(4, 0, 4, 0);
             labelCSHPs.Name = "labelCSHPs";
             labelCSHPs.Size = new Size(12, 15);
@@ -453,23 +560,23 @@
             // 
             // numericCSmaxHealth
             // 
-            numericCSmaxHealth.Location = new Point(177, 55);
+            numericCSmaxHealth.Location = new Point(169, 53);
             numericCSmaxHealth.Margin = new Padding(4, 3, 4, 3);
             numericCSmaxHealth.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
             numericCSmaxHealth.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numericCSmaxHealth.Name = "numericCSmaxHealth";
-            numericCSmaxHealth.Size = new Size(100, 23);
+            numericCSmaxHealth.Size = new Size(108, 23);
             numericCSmaxHealth.TabIndex = 3;
             numericCSmaxHealth.Value = new decimal(new int[] { 1, 0, 0, 0 });
             numericCSmaxHealth.ValueChanged += numericCSmaxHealth_ValueChanged;
             // 
             // numericCScurrHealth
             // 
-            numericCScurrHealth.Location = new Point(59, 54);
+            numericCScurrHealth.Location = new Point(38, 53);
             numericCScurrHealth.Margin = new Padding(4, 3, 4, 3);
             numericCScurrHealth.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
             numericCScurrHealth.Name = "numericCScurrHealth";
-            numericCScurrHealth.Size = new Size(90, 23);
+            numericCScurrHealth.Size = new Size(102, 23);
             numericCScurrHealth.TabIndex = 2;
             numericCScurrHealth.Value = new decimal(new int[] { 1, 0, 0, 0 });
             numericCScurrHealth.ValueChanged += numericCScurrHealth_ValueChanged;
@@ -477,7 +584,7 @@
             // labelCSHP
             // 
             labelCSHP.AutoSize = true;
-            labelCSHP.Location = new Point(25, 58);
+            labelCSHP.Location = new Point(5, 57);
             labelCSHP.Margin = new Padding(4, 0, 4, 0);
             labelCSHP.Name = "labelCSHP";
             labelCSHP.Size = new Size(26, 15);
@@ -555,7 +662,7 @@
             numericCSAP.Margin = new Padding(4, 3, 4, 3);
             numericCSAP.Maximum = new decimal(new int[] { 500000, 0, 0, 0 });
             numericCSAP.Name = "numericCSAP";
-            numericCSAP.Size = new Size(100, 23);
+            numericCSAP.Size = new Size(99, 23);
             numericCSAP.TabIndex = 17;
             numericCSAP.ValueChanged += numericCSAP_ValueChanged;
             // 
@@ -784,14 +891,14 @@
             comboBoxCSAccessory.Location = new Point(357, 84);
             comboBoxCSAccessory.Margin = new Padding(4, 3, 4, 3);
             comboBoxCSAccessory.Name = "comboBoxCSAccessory";
-            comboBoxCSAccessory.Size = new Size(266, 23);
+            comboBoxCSAccessory.Size = new Size(186, 23);
             comboBoxCSAccessory.TabIndex = 14;
             comboBoxCSAccessory.SelectedIndexChanged += comboBoxCSAccessory_SelectedIndexChanged;
             // 
             // labelCSArmor
             // 
             labelCSArmor.AutoSize = true;
-            labelCSArmor.Location = new Point(307, 58);
+            labelCSArmor.Location = new Point(307, 57);
             labelCSArmor.Margin = new Padding(4, 0, 4, 0);
             labelCSArmor.Name = "labelCSArmor";
             labelCSArmor.Size = new Size(44, 15);
@@ -806,7 +913,7 @@
             comboBoxCSArmor.Location = new Point(357, 53);
             comboBoxCSArmor.Margin = new Padding(4, 3, 4, 3);
             comboBoxCSArmor.Name = "comboBoxCSArmor";
-            comboBoxCSArmor.Size = new Size(266, 23);
+            comboBoxCSArmor.Size = new Size(186, 23);
             comboBoxCSArmor.TabIndex = 13;
             comboBoxCSArmor.SelectedIndexChanged += comboBoxCSArmor_SelectedIndexChanged;
             // 
@@ -828,18 +935,18 @@
             comboBoxCSWeapon.Location = new Point(357, 22);
             comboBoxCSWeapon.Margin = new Padding(4, 3, 4, 3);
             comboBoxCSWeapon.Name = "comboBoxCSWeapon";
-            comboBoxCSWeapon.Size = new Size(266, 23);
+            comboBoxCSWeapon.Size = new Size(186, 23);
             comboBoxCSWeapon.TabIndex = 12;
             comboBoxCSWeapon.SelectedIndexChanged += comboBoxCSWeapon_SelectedIndexChanged;
             // 
             // numericCSLevel
             // 
-            numericCSLevel.Location = new Point(201, 25);
+            numericCSLevel.Location = new Point(227, 23);
             numericCSLevel.Margin = new Padding(4, 3, 4, 3);
             numericCSLevel.Maximum = new decimal(new int[] { 99, 0, 0, 0 });
             numericCSLevel.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numericCSLevel.Name = "numericCSLevel";
-            numericCSLevel.Size = new Size(76, 23);
+            numericCSLevel.Size = new Size(50, 23);
             numericCSLevel.TabIndex = 1;
             numericCSLevel.Value = new decimal(new int[] { 1, 0, 0, 0 });
             numericCSLevel.ValueChanged += numericCSLevel_ValueChanged;
@@ -847,7 +954,7 @@
             // labelCSLevel
             // 
             labelCSLevel.AutoSize = true;
-            labelCSLevel.Location = new Point(157, 28);
+            labelCSLevel.Location = new Point(185, 26);
             labelCSLevel.Margin = new Padding(4, 0, 4, 0);
             labelCSLevel.Name = "labelCSLevel";
             labelCSLevel.Size = new Size(37, 15);
@@ -857,20 +964,25 @@
             // groupBoxVincent
             // 
             groupBoxVincent.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            groupBoxVincent.Controls.Add(checkBoxVAllowAll);
+            groupBoxVincent.Controls.Add(numericVLimitLevel);
+            groupBoxVincent.Controls.Add(labelVLimitLevel);
+            groupBoxVincent.Controls.Add(labelVLimitBar);
+            groupBoxVincent.Controls.Add(trackBarVLimitBar);
             groupBoxVincent.Controls.Add(numericVID);
             groupBoxVincent.Controls.Add(labelVID);
             groupBoxVincent.Controls.Add(numericVstr);
-            groupBoxVincent.Controls.Add(label1);
+            groupBoxVincent.Controls.Add(labelVStr);
             groupBoxVincent.Controls.Add(numericVspr);
-            groupBoxVincent.Controls.Add(label2);
+            groupBoxVincent.Controls.Add(labelVSpr);
             groupBoxVincent.Controls.Add(numericVmag);
-            groupBoxVincent.Controls.Add(label3);
+            groupBoxVincent.Controls.Add(labelVMag);
             groupBoxVincent.Controls.Add(numericVvit);
-            groupBoxVincent.Controls.Add(label4);
+            groupBoxVincent.Controls.Add(labelVVit);
             groupBoxVincent.Controls.Add(numericVlck);
-            groupBoxVincent.Controls.Add(label5);
+            groupBoxVincent.Controls.Add(labelVLck);
             groupBoxVincent.Controls.Add(numericVdex);
-            groupBoxVincent.Controls.Add(label6);
+            groupBoxVincent.Controls.Add(labelVDex);
             groupBoxVincent.Controls.Add(labelVMPs);
             groupBoxVincent.Controls.Add(numericVmaxMana);
             groupBoxVincent.Controls.Add(numericVcurrMana);
@@ -897,13 +1009,66 @@
             groupBoxVincent.TabStop = false;
             groupBoxVincent.Text = "Vincent initial data";
             // 
+            // checkBoxVAllowAll
+            // 
+            checkBoxVAllowAll.AutoSize = true;
+            checkBoxVAllowAll.Location = new Point(552, 25);
+            checkBoxVAllowAll.Name = "checkBoxVAllowAll";
+            checkBoxVAllowAll.Size = new Size(71, 19);
+            checkBoxVAllowAll.TabIndex = 56;
+            checkBoxVAllowAll.Text = "Allow all";
+            checkBoxVAllowAll.UseVisualStyleBackColor = true;
+            checkBoxVAllowAll.CheckedChanged += checkBoxVAllowAll_CheckedChanged;
+            // 
+            // numericVLimitLevel
+            // 
+            numericVLimitLevel.Location = new Point(213, 207);
+            numericVLimitLevel.Maximum = new decimal(new int[] { 4, 0, 0, 0 });
+            numericVLimitLevel.Name = "numericVLimitLevel";
+            numericVLimitLevel.Size = new Size(64, 23);
+            numericVLimitLevel.TabIndex = 55;
+            numericVLimitLevel.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            numericVLimitLevel.ValueChanged += numericVLimitLevel_ValueChanged;
+            // 
+            // labelVLimitLevel
+            // 
+            labelVLimitLevel.AutoSize = true;
+            labelVLimitLevel.Location = new Point(213, 189);
+            labelVLimitLevel.Name = "labelVLimitLevel";
+            labelVLimitLevel.Size = new Size(64, 15);
+            labelVLimitLevel.TabIndex = 54;
+            labelVLimitLevel.Text = "Limit level:";
+            // 
+            // labelVLimitBar
+            // 
+            labelVLimitBar.AutoSize = true;
+            labelVLimitBar.Location = new Point(4, 181);
+            labelVLimitBar.Name = "labelVLimitBar";
+            labelVLimitBar.Size = new Size(57, 15);
+            labelVLimitBar.TabIndex = 53;
+            labelVLimitBar.Text = "Limit bar:";
+            // 
+            // trackBarVLimitBar
+            // 
+            trackBarVLimitBar.BackColor = SystemColors.Window;
+            trackBarVLimitBar.LargeChange = 51;
+            trackBarVLimitBar.Location = new Point(6, 199);
+            trackBarVLimitBar.Maximum = 255;
+            trackBarVLimitBar.Name = "trackBarVLimitBar";
+            trackBarVLimitBar.Size = new Size(201, 45);
+            trackBarVLimitBar.SmallChange = 5;
+            trackBarVLimitBar.TabIndex = 52;
+            trackBarVLimitBar.TickFrequency = 51;
+            trackBarVLimitBar.TickStyle = TickStyle.TopLeft;
+            trackBarVLimitBar.Scroll += trackBarVLimitBar_Scroll;
+            // 
             // numericVID
             // 
-            numericVID.Location = new Point(58, 23);
+            numericVID.Location = new Point(38, 22);
             numericVID.Margin = new Padding(4, 3, 4, 3);
             numericVID.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
             numericVID.Name = "numericVID";
-            numericVID.Size = new Size(76, 23);
+            numericVID.Size = new Size(50, 23);
             numericVID.TabIndex = 0;
             numericVID.Value = new decimal(new int[] { 1, 0, 0, 0 });
             numericVID.ValueChanged += numericVID_ValueChanged;
@@ -911,7 +1076,7 @@
             // labelVID
             // 
             labelVID.AutoSize = true;
-            labelVID.Location = new Point(30, 25);
+            labelVID.Location = new Point(10, 24);
             labelVID.Margin = new Padding(4, 0, 4, 0);
             labelVID.Name = "labelVID";
             labelVID.Size = new Size(21, 15);
@@ -920,134 +1085,134 @@
             // 
             // numericVstr
             // 
-            numericVstr.Location = new Point(58, 145);
+            numericVstr.Location = new Point(38, 117);
             numericVstr.Margin = new Padding(4, 3, 4, 3);
             numericVstr.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             numericVstr.Name = "numericVstr";
-            numericVstr.Size = new Size(76, 23);
+            numericVstr.Size = new Size(50, 23);
             numericVstr.TabIndex = 6;
             numericVstr.Value = new decimal(new int[] { 1, 0, 0, 0 });
             numericVstr.ValueChanged += numericVstr_ValueChanged;
             // 
-            // label1
+            // labelVStr
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(26, 149);
-            label1.Margin = new Padding(4, 0, 4, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(24, 15);
-            label1.TabIndex = 49;
-            label1.Text = "Str:";
+            labelVStr.AutoSize = true;
+            labelVStr.Location = new Point(7, 119);
+            labelVStr.Margin = new Padding(4, 0, 4, 0);
+            labelVStr.Name = "labelVStr";
+            labelVStr.Size = new Size(24, 15);
+            labelVStr.TabIndex = 49;
+            labelVStr.Text = "Str:";
             // 
             // numericVspr
             // 
-            numericVspr.Location = new Point(201, 147);
+            numericVspr.Location = new Point(38, 146);
             numericVspr.Margin = new Padding(4, 3, 4, 3);
             numericVspr.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             numericVspr.Name = "numericVspr";
-            numericVspr.Size = new Size(76, 23);
+            numericVspr.Size = new Size(50, 23);
             numericVspr.TabIndex = 7;
             numericVspr.Value = new decimal(new int[] { 1, 0, 0, 0 });
             numericVspr.ValueChanged += numericVspr_ValueChanged;
             // 
-            // label2
+            // labelVSpr
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(166, 149);
-            label2.Margin = new Padding(4, 0, 4, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(27, 15);
-            label2.TabIndex = 47;
-            label2.Text = "Spr:";
+            labelVSpr.AutoSize = true;
+            labelVSpr.Location = new Point(3, 148);
+            labelVSpr.Margin = new Padding(4, 0, 4, 0);
+            labelVSpr.Name = "labelVSpr";
+            labelVSpr.Size = new Size(27, 15);
+            labelVSpr.TabIndex = 47;
+            labelVSpr.Text = "Spr:";
             // 
             // numericVmag
             // 
-            numericVmag.Location = new Point(58, 207);
+            numericVmag.Location = new Point(227, 118);
             numericVmag.Margin = new Padding(4, 3, 4, 3);
             numericVmag.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             numericVmag.Name = "numericVmag";
-            numericVmag.Size = new Size(76, 23);
+            numericVmag.Size = new Size(50, 23);
             numericVmag.TabIndex = 10;
             numericVmag.Value = new decimal(new int[] { 1, 0, 0, 0 });
             numericVmag.ValueChanged += numericVmag_ValueChanged;
             // 
-            // label3
+            // labelVMag
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(16, 210);
-            label3.Margin = new Padding(4, 0, 4, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(34, 15);
-            label3.TabIndex = 45;
-            label3.Text = "Mag:";
+            labelVMag.AutoSize = true;
+            labelVMag.Location = new Point(188, 120);
+            labelVMag.Margin = new Padding(4, 0, 4, 0);
+            labelVMag.Name = "labelVMag";
+            labelVMag.Size = new Size(34, 15);
+            labelVMag.TabIndex = 45;
+            labelVMag.Text = "Mag:";
             // 
             // numericVvit
             // 
-            numericVvit.Location = new Point(58, 175);
+            numericVvit.Location = new Point(129, 117);
             numericVvit.Margin = new Padding(4, 3, 4, 3);
             numericVvit.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             numericVvit.Name = "numericVvit";
-            numericVvit.Size = new Size(76, 23);
+            numericVvit.Size = new Size(50, 23);
             numericVvit.TabIndex = 8;
             numericVvit.Value = new decimal(new int[] { 1, 0, 0, 0 });
             numericVvit.ValueChanged += numericVvit_ValueChanged;
             // 
-            // label4
+            // labelVVit
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(27, 179);
-            label4.Margin = new Padding(4, 0, 4, 0);
-            label4.Name = "label4";
-            label4.Size = new Size(24, 15);
-            label4.TabIndex = 43;
-            label4.Text = "Vit:";
+            labelVVit.AutoSize = true;
+            labelVVit.Location = new Point(98, 119);
+            labelVVit.Margin = new Padding(4, 0, 4, 0);
+            labelVVit.Name = "labelVVit";
+            labelVVit.Size = new Size(24, 15);
+            labelVVit.TabIndex = 43;
+            labelVVit.Text = "Vit:";
             // 
             // numericVlck
             // 
-            numericVlck.Location = new Point(201, 208);
+            numericVlck.Location = new Point(227, 147);
             numericVlck.Margin = new Padding(4, 3, 4, 3);
             numericVlck.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             numericVlck.Name = "numericVlck";
-            numericVlck.Size = new Size(76, 23);
+            numericVlck.Size = new Size(50, 23);
             numericVlck.TabIndex = 11;
             numericVlck.Value = new decimal(new int[] { 1, 0, 0, 0 });
             numericVlck.ValueChanged += numericVlck_ValueChanged;
             // 
-            // label5
+            // labelVLck
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(166, 210);
-            label5.Margin = new Padding(4, 0, 4, 0);
-            label5.Name = "label5";
-            label5.Size = new Size(28, 15);
-            label5.TabIndex = 41;
-            label5.Text = "Lck:";
+            labelVLck.AutoSize = true;
+            labelVLck.Location = new Point(194, 149);
+            labelVLck.Margin = new Padding(4, 0, 4, 0);
+            labelVLck.Name = "labelVLck";
+            labelVLck.Size = new Size(28, 15);
+            labelVLck.TabIndex = 41;
+            labelVLck.Text = "Lck:";
             // 
             // numericVdex
             // 
-            numericVdex.Location = new Point(201, 177);
+            numericVdex.Location = new Point(129, 146);
             numericVdex.Margin = new Padding(4, 3, 4, 3);
             numericVdex.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             numericVdex.Name = "numericVdex";
-            numericVdex.Size = new Size(76, 23);
+            numericVdex.Size = new Size(50, 23);
             numericVdex.TabIndex = 9;
             numericVdex.Value = new decimal(new int[] { 1, 0, 0, 0 });
             numericVdex.ValueChanged += numericVdex_ValueChanged;
             // 
-            // label6
+            // labelVDex
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(163, 179);
-            label6.Margin = new Padding(4, 0, 4, 0);
-            label6.Name = "label6";
-            label6.Size = new Size(30, 15);
-            label6.TabIndex = 39;
-            label6.Text = "Dex:";
+            labelVDex.AutoSize = true;
+            labelVDex.Location = new Point(91, 148);
+            labelVDex.Margin = new Padding(4, 0, 4, 0);
+            labelVDex.Name = "labelVDex";
+            labelVDex.Size = new Size(30, 15);
+            labelVDex.TabIndex = 39;
+            labelVDex.Text = "Dex:";
             // 
             // labelVMPs
             // 
             labelVMPs.AutoSize = true;
-            labelVMPs.Location = new Point(156, 89);
+            labelVMPs.Location = new Point(148, 89);
             labelVMPs.Margin = new Padding(4, 0, 4, 0);
             labelVMPs.Name = "labelVMPs";
             labelVMPs.Size = new Size(12, 15);
@@ -1056,23 +1221,23 @@
             // 
             // numericVmaxMana
             // 
-            numericVmaxMana.Location = new Point(177, 87);
+            numericVmaxMana.Location = new Point(169, 87);
             numericVmaxMana.Margin = new Padding(4, 3, 4, 3);
             numericVmaxMana.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
             numericVmaxMana.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numericVmaxMana.Name = "numericVmaxMana";
-            numericVmaxMana.Size = new Size(100, 23);
+            numericVmaxMana.Size = new Size(108, 23);
             numericVmaxMana.TabIndex = 5;
             numericVmaxMana.Value = new decimal(new int[] { 1, 0, 0, 0 });
             numericVmaxMana.ValueChanged += numericVmaxMana_ValueChanged;
             // 
             // numericVcurrMana
             // 
-            numericVcurrMana.Location = new Point(59, 84);
+            numericVcurrMana.Location = new Point(38, 84);
             numericVcurrMana.Margin = new Padding(4, 3, 4, 3);
             numericVcurrMana.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
             numericVcurrMana.Name = "numericVcurrMana";
-            numericVcurrMana.Size = new Size(90, 23);
+            numericVcurrMana.Size = new Size(102, 23);
             numericVcurrMana.TabIndex = 4;
             numericVcurrMana.Value = new decimal(new int[] { 1, 0, 0, 0 });
             numericVcurrMana.ValueChanged += numericVcurrMana_ValueChanged;
@@ -1080,7 +1245,7 @@
             // labelVMP
             // 
             labelVMP.AutoSize = true;
-            labelVMP.Location = new Point(23, 89);
+            labelVMP.Location = new Point(3, 88);
             labelVMP.Margin = new Padding(4, 0, 4, 0);
             labelVMP.Name = "labelVMP";
             labelVMP.Size = new Size(28, 15);
@@ -1090,7 +1255,7 @@
             // labelVHPs
             // 
             labelVHPs.AutoSize = true;
-            labelVHPs.Location = new Point(156, 58);
+            labelVHPs.Location = new Point(148, 57);
             labelVHPs.Margin = new Padding(4, 0, 4, 0);
             labelVHPs.Name = "labelVHPs";
             labelVHPs.Size = new Size(12, 15);
@@ -1099,23 +1264,23 @@
             // 
             // numericVmaxHealth
             // 
-            numericVmaxHealth.Location = new Point(177, 53);
+            numericVmaxHealth.Location = new Point(169, 53);
             numericVmaxHealth.Margin = new Padding(4, 3, 4, 3);
             numericVmaxHealth.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
             numericVmaxHealth.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numericVmaxHealth.Name = "numericVmaxHealth";
-            numericVmaxHealth.Size = new Size(100, 23);
+            numericVmaxHealth.Size = new Size(108, 23);
             numericVmaxHealth.TabIndex = 3;
             numericVmaxHealth.Value = new decimal(new int[] { 1, 0, 0, 0 });
             numericVmaxHealth.ValueChanged += numericVmaxHealth_ValueChanged;
             // 
             // numericVcurrHealth
             // 
-            numericVcurrHealth.Location = new Point(59, 53);
+            numericVcurrHealth.Location = new Point(38, 53);
             numericVcurrHealth.Margin = new Padding(4, 3, 4, 3);
             numericVcurrHealth.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
             numericVcurrHealth.Name = "numericVcurrHealth";
-            numericVcurrHealth.Size = new Size(90, 23);
+            numericVcurrHealth.Size = new Size(102, 23);
             numericVcurrHealth.TabIndex = 2;
             numericVcurrHealth.Value = new decimal(new int[] { 1, 0, 0, 0 });
             numericVcurrHealth.ValueChanged += numericVcurrHealth_ValueChanged;
@@ -1123,7 +1288,7 @@
             // labelVHP
             // 
             labelVHP.AutoSize = true;
-            labelVHP.Location = new Point(25, 57);
+            labelVHP.Location = new Point(5, 57);
             labelVHP.Margin = new Padding(4, 0, 4, 0);
             labelVHP.Name = "labelVHP";
             labelVHP.Size = new Size(26, 15);
@@ -1430,7 +1595,7 @@
             comboBoxVAccessory.Location = new Point(357, 85);
             comboBoxVAccessory.Margin = new Padding(4, 3, 4, 3);
             comboBoxVAccessory.Name = "comboBoxVAccessory";
-            comboBoxVAccessory.Size = new Size(266, 23);
+            comboBoxVAccessory.Size = new Size(186, 23);
             comboBoxVAccessory.TabIndex = 14;
             comboBoxVAccessory.SelectedIndexChanged += comboBoxVAccessory_SelectedIndexChanged;
             // 
@@ -1452,7 +1617,7 @@
             comboBoxVArmor.Location = new Point(357, 54);
             comboBoxVArmor.Margin = new Padding(4, 3, 4, 3);
             comboBoxVArmor.Name = "comboBoxVArmor";
-            comboBoxVArmor.Size = new Size(266, 23);
+            comboBoxVArmor.Size = new Size(186, 23);
             comboBoxVArmor.TabIndex = 13;
             comboBoxVArmor.SelectedIndexChanged += comboBoxVArmor_SelectedIndexChanged;
             // 
@@ -1474,18 +1639,18 @@
             comboBoxVWeapon.Location = new Point(357, 23);
             comboBoxVWeapon.Margin = new Padding(4, 3, 4, 3);
             comboBoxVWeapon.Name = "comboBoxVWeapon";
-            comboBoxVWeapon.Size = new Size(266, 23);
+            comboBoxVWeapon.Size = new Size(186, 23);
             comboBoxVWeapon.TabIndex = 12;
             comboBoxVWeapon.SelectedIndexChanged += comboBoxVWeapon_SelectedIndexChanged;
             // 
             // numericVLevel
             // 
-            numericVLevel.Location = new Point(202, 23);
+            numericVLevel.Location = new Point(227, 22);
             numericVLevel.Margin = new Padding(4, 3, 4, 3);
             numericVLevel.Maximum = new decimal(new int[] { 99, 0, 0, 0 });
             numericVLevel.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numericVLevel.Name = "numericVLevel";
-            numericVLevel.Size = new Size(75, 23);
+            numericVLevel.Size = new Size(50, 23);
             numericVLevel.TabIndex = 1;
             numericVLevel.Value = new decimal(new int[] { 1, 0, 0, 0 });
             numericVLevel.ValueChanged += numericVLevel_ValueChanged;
@@ -1493,7 +1658,7 @@
             // labelVLevel
             // 
             labelVLevel.AutoSize = true;
-            labelVLevel.Location = new Point(157, 25);
+            labelVLevel.Location = new Point(185, 24);
             labelVLevel.Margin = new Padding(4, 0, 4, 0);
             labelVLevel.Name = "labelVLevel";
             labelVLevel.Size = new Size(37, 15);
@@ -1541,6 +1706,7 @@
             tabControlMain.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tabControlMain.Controls.Add(tabPageInitialData);
             tabControlMain.Controls.Add(tabPageNames);
+            tabControlMain.Controls.Add(tabPageShopData);
             tabControlMain.Location = new Point(13, 12);
             tabControlMain.Margin = new Padding(4, 3, 4, 3);
             tabControlMain.Name = "tabControlMain";
@@ -1806,6 +1972,328 @@
             pictureBoxCloud.TabIndex = 0;
             pictureBoxCloud.TabStop = false;
             // 
+            // tabPageShopData
+            // 
+            tabPageShopData.Controls.Add(groupBoxShopInventory);
+            tabPageShopData.Controls.Add(numericMateriaPrice);
+            tabPageShopData.Controls.Add(labelMateriaPrice);
+            tabPageShopData.Controls.Add(labelMateriaPrices);
+            tabPageShopData.Controls.Add(listBoxMateriaPrices);
+            tabPageShopData.Controls.Add(numericMateriaAPPriceMultiplier);
+            tabPageShopData.Controls.Add(labelMateriaAPPriceMultiplier);
+            tabPageShopData.Controls.Add(numericItemPrice);
+            tabPageShopData.Controls.Add(labelItemPrice);
+            tabPageShopData.Controls.Add(labelItemPrices);
+            tabPageShopData.Controls.Add(listBoxItemPrices);
+            tabPageShopData.Location = new Point(4, 24);
+            tabPageShopData.Name = "tabPageShopData";
+            tabPageShopData.Size = new Size(647, 538);
+            tabPageShopData.TabIndex = 2;
+            tabPageShopData.Text = "Shop data";
+            tabPageShopData.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxShopInventory
+            // 
+            groupBoxShopInventory.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupBoxShopInventory.Controls.Add(comboBoxShopItem10);
+            groupBoxShopInventory.Controls.Add(comboBoxShopItem9);
+            groupBoxShopInventory.Controls.Add(comboBoxShopItem8);
+            groupBoxShopInventory.Controls.Add(comboBoxShopItem7);
+            groupBoxShopInventory.Controls.Add(comboBoxShopItem6);
+            groupBoxShopInventory.Controls.Add(comboBoxShopItem5);
+            groupBoxShopInventory.Controls.Add(comboBoxShopItem4);
+            groupBoxShopInventory.Controls.Add(comboBoxShopItem3);
+            groupBoxShopInventory.Controls.Add(comboBoxShopItem2);
+            groupBoxShopInventory.Controls.Add(comboBoxShopItem1);
+            groupBoxShopInventory.Controls.Add(labelShopItems);
+            groupBoxShopInventory.Controls.Add(numericShopItemCount);
+            groupBoxShopInventory.Controls.Add(labelShopItemCount);
+            groupBoxShopInventory.Controls.Add(comboBoxShopType);
+            groupBoxShopInventory.Controls.Add(labelShopType);
+            groupBoxShopInventory.Controls.Add(comboBoxShopIndex);
+            groupBoxShopInventory.Controls.Add(labelShopIndex);
+            groupBoxShopInventory.Location = new Point(365, 5);
+            groupBoxShopInventory.Name = "groupBoxShopInventory";
+            groupBoxShopInventory.Size = new Size(277, 487);
+            groupBoxShopInventory.TabIndex = 10;
+            groupBoxShopInventory.TabStop = false;
+            groupBoxShopInventory.Text = "Shop inventories";
+            // 
+            // comboBoxShopItem10
+            // 
+            comboBoxShopItem10.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            comboBoxShopItem10.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxShopItem10.FormattingEnabled = true;
+            comboBoxShopItem10.Location = new Point(6, 458);
+            comboBoxShopItem10.Name = "comboBoxShopItem10";
+            comboBoxShopItem10.Size = new Size(265, 23);
+            comboBoxShopItem10.TabIndex = 16;
+            comboBoxShopItem10.SelectedIndexChanged += comboBoxShopItem_SelectedIndexChanged;
+            // 
+            // comboBoxShopItem9
+            // 
+            comboBoxShopItem9.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            comboBoxShopItem9.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxShopItem9.FormattingEnabled = true;
+            comboBoxShopItem9.Location = new Point(6, 429);
+            comboBoxShopItem9.Name = "comboBoxShopItem9";
+            comboBoxShopItem9.Size = new Size(265, 23);
+            comboBoxShopItem9.TabIndex = 15;
+            comboBoxShopItem9.SelectedIndexChanged += comboBoxShopItem_SelectedIndexChanged;
+            // 
+            // comboBoxShopItem8
+            // 
+            comboBoxShopItem8.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            comboBoxShopItem8.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxShopItem8.FormattingEnabled = true;
+            comboBoxShopItem8.Location = new Point(6, 400);
+            comboBoxShopItem8.Name = "comboBoxShopItem8";
+            comboBoxShopItem8.Size = new Size(265, 23);
+            comboBoxShopItem8.TabIndex = 14;
+            comboBoxShopItem8.SelectedIndexChanged += comboBoxShopItem_SelectedIndexChanged;
+            // 
+            // comboBoxShopItem7
+            // 
+            comboBoxShopItem7.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            comboBoxShopItem7.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxShopItem7.FormattingEnabled = true;
+            comboBoxShopItem7.Location = new Point(6, 371);
+            comboBoxShopItem7.Name = "comboBoxShopItem7";
+            comboBoxShopItem7.Size = new Size(265, 23);
+            comboBoxShopItem7.TabIndex = 13;
+            comboBoxShopItem7.SelectedIndexChanged += comboBoxShopItem_SelectedIndexChanged;
+            // 
+            // comboBoxShopItem6
+            // 
+            comboBoxShopItem6.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            comboBoxShopItem6.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxShopItem6.FormattingEnabled = true;
+            comboBoxShopItem6.Location = new Point(6, 342);
+            comboBoxShopItem6.Name = "comboBoxShopItem6";
+            comboBoxShopItem6.Size = new Size(265, 23);
+            comboBoxShopItem6.TabIndex = 12;
+            comboBoxShopItem6.SelectedIndexChanged += comboBoxShopItem_SelectedIndexChanged;
+            // 
+            // comboBoxShopItem5
+            // 
+            comboBoxShopItem5.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            comboBoxShopItem5.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxShopItem5.FormattingEnabled = true;
+            comboBoxShopItem5.Location = new Point(6, 313);
+            comboBoxShopItem5.Name = "comboBoxShopItem5";
+            comboBoxShopItem5.Size = new Size(265, 23);
+            comboBoxShopItem5.TabIndex = 11;
+            comboBoxShopItem5.SelectedIndexChanged += comboBoxShopItem_SelectedIndexChanged;
+            // 
+            // comboBoxShopItem4
+            // 
+            comboBoxShopItem4.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            comboBoxShopItem4.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxShopItem4.FormattingEnabled = true;
+            comboBoxShopItem4.Location = new Point(6, 284);
+            comboBoxShopItem4.Name = "comboBoxShopItem4";
+            comboBoxShopItem4.Size = new Size(265, 23);
+            comboBoxShopItem4.TabIndex = 10;
+            comboBoxShopItem4.SelectedIndexChanged += comboBoxShopItem_SelectedIndexChanged;
+            // 
+            // comboBoxShopItem3
+            // 
+            comboBoxShopItem3.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            comboBoxShopItem3.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxShopItem3.FormattingEnabled = true;
+            comboBoxShopItem3.Location = new Point(6, 255);
+            comboBoxShopItem3.Name = "comboBoxShopItem3";
+            comboBoxShopItem3.Size = new Size(265, 23);
+            comboBoxShopItem3.TabIndex = 9;
+            comboBoxShopItem3.SelectedIndexChanged += comboBoxShopItem_SelectedIndexChanged;
+            // 
+            // comboBoxShopItem2
+            // 
+            comboBoxShopItem2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            comboBoxShopItem2.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxShopItem2.FormattingEnabled = true;
+            comboBoxShopItem2.Location = new Point(6, 226);
+            comboBoxShopItem2.Name = "comboBoxShopItem2";
+            comboBoxShopItem2.Size = new Size(265, 23);
+            comboBoxShopItem2.TabIndex = 8;
+            comboBoxShopItem2.SelectedIndexChanged += comboBoxShopItem_SelectedIndexChanged;
+            // 
+            // comboBoxShopItem1
+            // 
+            comboBoxShopItem1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            comboBoxShopItem1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxShopItem1.FormattingEnabled = true;
+            comboBoxShopItem1.Location = new Point(6, 197);
+            comboBoxShopItem1.Name = "comboBoxShopItem1";
+            comboBoxShopItem1.Size = new Size(265, 23);
+            comboBoxShopItem1.TabIndex = 7;
+            comboBoxShopItem1.SelectedIndexChanged += comboBoxShopItem_SelectedIndexChanged;
+            // 
+            // labelShopItems
+            // 
+            labelShopItems.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            labelShopItems.AutoSize = true;
+            labelShopItems.Location = new Point(6, 179);
+            labelShopItems.Name = "labelShopItems";
+            labelShopItems.Size = new Size(39, 15);
+            labelShopItems.TabIndex = 6;
+            labelShopItems.Text = "Items:";
+            // 
+            // numericShopItemCount
+            // 
+            numericShopItemCount.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            numericShopItemCount.Location = new Point(6, 127);
+            numericShopItemCount.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
+            numericShopItemCount.Name = "numericShopItemCount";
+            numericShopItemCount.Size = new Size(265, 23);
+            numericShopItemCount.TabIndex = 5;
+            numericShopItemCount.ValueChanged += numericShopItemCount_ValueChanged;
+            // 
+            // labelShopItemCount
+            // 
+            labelShopItemCount.AutoSize = true;
+            labelShopItemCount.Location = new Point(6, 108);
+            labelShopItemCount.Name = "labelShopItemCount";
+            labelShopItemCount.Size = new Size(68, 15);
+            labelShopItemCount.TabIndex = 4;
+            labelShopItemCount.Text = "Item count:";
+            // 
+            // comboBoxShopType
+            // 
+            comboBoxShopType.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            comboBoxShopType.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxShopType.FormattingEnabled = true;
+            comboBoxShopType.Location = new Point(6, 82);
+            comboBoxShopType.Name = "comboBoxShopType";
+            comboBoxShopType.Size = new Size(265, 23);
+            comboBoxShopType.TabIndex = 3;
+            // 
+            // labelShopType
+            // 
+            labelShopType.AutoSize = true;
+            labelShopType.Location = new Point(6, 63);
+            labelShopType.Name = "labelShopType";
+            labelShopType.Size = new Size(63, 15);
+            labelShopType.TabIndex = 2;
+            labelShopType.Text = "Shop type:";
+            // 
+            // comboBoxShopIndex
+            // 
+            comboBoxShopIndex.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            comboBoxShopIndex.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxShopIndex.FormattingEnabled = true;
+            comboBoxShopIndex.Location = new Point(6, 37);
+            comboBoxShopIndex.Name = "comboBoxShopIndex";
+            comboBoxShopIndex.Size = new Size(265, 23);
+            comboBoxShopIndex.TabIndex = 1;
+            comboBoxShopIndex.SelectedIndexChanged += comboBoxShopIndex_SelectedIndexChanged;
+            // 
+            // labelShopIndex
+            // 
+            labelShopIndex.AutoSize = true;
+            labelShopIndex.Location = new Point(6, 19);
+            labelShopIndex.Name = "labelShopIndex";
+            labelShopIndex.Size = new Size(69, 15);
+            labelShopIndex.TabIndex = 0;
+            labelShopIndex.Text = "Shop index:";
+            // 
+            // numericMateriaPrice
+            // 
+            numericMateriaPrice.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            numericMateriaPrice.Enabled = false;
+            numericMateriaPrice.Location = new Point(225, 502);
+            numericMateriaPrice.Name = "numericMateriaPrice";
+            numericMateriaPrice.Size = new Size(132, 23);
+            numericMateriaPrice.TabIndex = 9;
+            numericMateriaPrice.ValueChanged += numericMateriaPrice_ValueChanged;
+            // 
+            // labelMateriaPrice
+            // 
+            labelMateriaPrice.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            labelMateriaPrice.AutoSize = true;
+            labelMateriaPrice.Location = new Point(183, 504);
+            labelMateriaPrice.Name = "labelMateriaPrice";
+            labelMateriaPrice.Size = new Size(36, 15);
+            labelMateriaPrice.TabIndex = 8;
+            labelMateriaPrice.Text = "Price:";
+            // 
+            // labelMateriaPrices
+            // 
+            labelMateriaPrices.AutoSize = true;
+            labelMateriaPrices.Location = new Point(183, 5);
+            labelMateriaPrices.Name = "labelMateriaPrices";
+            labelMateriaPrices.Size = new Size(84, 15);
+            labelMateriaPrices.TabIndex = 7;
+            labelMateriaPrices.Text = "Materia prices:";
+            // 
+            // listBoxMateriaPrices
+            // 
+            listBoxMateriaPrices.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            listBoxMateriaPrices.FormattingEnabled = true;
+            listBoxMateriaPrices.ItemHeight = 15;
+            listBoxMateriaPrices.Location = new Point(183, 23);
+            listBoxMateriaPrices.Name = "listBoxMateriaPrices";
+            listBoxMateriaPrices.Size = new Size(174, 469);
+            listBoxMateriaPrices.TabIndex = 6;
+            listBoxMateriaPrices.SelectedIndexChanged += listBoxMateriaPrices_SelectedIndexChanged;
+            // 
+            // numericMateriaAPPriceMultiplier
+            // 
+            numericMateriaAPPriceMultiplier.Location = new Point(522, 502);
+            numericMateriaAPPriceMultiplier.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
+            numericMateriaAPPriceMultiplier.Name = "numericMateriaAPPriceMultiplier";
+            numericMateriaAPPriceMultiplier.Size = new Size(120, 23);
+            numericMateriaAPPriceMultiplier.TabIndex = 5;
+            // 
+            // labelMateriaAPPriceMultiplier
+            // 
+            labelMateriaAPPriceMultiplier.AutoSize = true;
+            labelMateriaAPPriceMultiplier.Location = new Point(365, 504);
+            labelMateriaAPPriceMultiplier.Name = "labelMateriaAPPriceMultiplier";
+            labelMateriaAPPriceMultiplier.Size = new Size(151, 15);
+            labelMateriaAPPriceMultiplier.TabIndex = 4;
+            labelMateriaAPPriceMultiplier.Text = "Materia AP price multiplier:";
+            // 
+            // numericItemPrice
+            // 
+            numericItemPrice.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            numericItemPrice.Enabled = false;
+            numericItemPrice.Location = new Point(45, 502);
+            numericItemPrice.Name = "numericItemPrice";
+            numericItemPrice.Size = new Size(132, 23);
+            numericItemPrice.TabIndex = 3;
+            numericItemPrice.ValueChanged += numericItemPrice_ValueChanged;
+            // 
+            // labelItemPrice
+            // 
+            labelItemPrice.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            labelItemPrice.AutoSize = true;
+            labelItemPrice.Location = new Point(3, 504);
+            labelItemPrice.Name = "labelItemPrice";
+            labelItemPrice.Size = new Size(36, 15);
+            labelItemPrice.TabIndex = 2;
+            labelItemPrice.Text = "Price:";
+            // 
+            // labelItemPrices
+            // 
+            labelItemPrices.AutoSize = true;
+            labelItemPrices.Location = new Point(3, 5);
+            labelItemPrices.Name = "labelItemPrices";
+            labelItemPrices.Size = new Size(68, 15);
+            labelItemPrices.TabIndex = 1;
+            labelItemPrices.Text = "Item prices:";
+            // 
+            // listBoxItemPrices
+            // 
+            listBoxItemPrices.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            listBoxItemPrices.FormattingEnabled = true;
+            listBoxItemPrices.ItemHeight = 15;
+            listBoxItemPrices.Location = new Point(3, 23);
+            listBoxItemPrices.Name = "listBoxItemPrices";
+            listBoxItemPrices.Size = new Size(174, 469);
+            listBoxItemPrices.TabIndex = 0;
+            listBoxItemPrices.SelectedIndexChanged += listBoxItemPrices_SelectedIndexChanged;
+            // 
             // buttonHext
             // 
             buttonHext.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
@@ -1832,10 +2320,12 @@
             MinimumSize = new Size(697, 663);
             Name = "MainForm";
             Text = "FF7.exe Editor";
-            Load += MainForm_Load;
+            Shown += MainForm_Shown;
             MouseMove += MainForm_MouseMove;
             groupBoxCaitSith.ResumeLayout(false);
             groupBoxCaitSith.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericCSLimitLevel).EndInit();
+            ((System.ComponentModel.ISupportInitialize)trackBarCSLimitBar).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericCSID).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericCSstr).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericCSspr).EndInit();
@@ -1853,6 +2343,8 @@
             ((System.ComponentModel.ISupportInitialize)numericCSLevel).EndInit();
             groupBoxVincent.ResumeLayout(false);
             groupBoxVincent.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericVLimitLevel).EndInit();
+            ((System.ComponentModel.ISupportInitialize)trackBarVLimitBar).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericVID).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericVstr).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericVspr).EndInit();
@@ -1882,6 +2374,14 @@
             ((System.ComponentModel.ISupportInitialize)pictureBoxTifa).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxBarret).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxCloud).EndInit();
+            tabPageShopData.ResumeLayout(false);
+            tabPageShopData.PerformLayout();
+            groupBoxShopInventory.ResumeLayout(false);
+            groupBoxShopInventory.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericShopItemCount).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericMateriaPrice).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericMateriaAPPriceMultiplier).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericItemPrice).EndInit();
             ResumeLayout(false);
         }
 
@@ -1971,17 +2471,17 @@
         private System.Windows.Forms.NumericUpDown numericCSdex;
         private System.Windows.Forms.Label labelCSdex;
         private System.Windows.Forms.NumericUpDown numericVstr;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelVStr;
         private System.Windows.Forms.NumericUpDown numericVspr;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelVSpr;
         private System.Windows.Forms.NumericUpDown numericVmag;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelVMag;
         private System.Windows.Forms.NumericUpDown numericVvit;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelVVit;
         private System.Windows.Forms.NumericUpDown numericVlck;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label labelVLck;
         private System.Windows.Forms.NumericUpDown numericVdex;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label labelVDex;
         private System.Windows.Forms.Label labelVMPs;
         private System.Windows.Forms.NumericUpDown numericVmaxMana;
         private System.Windows.Forms.NumericUpDown numericVcurrMana;
@@ -2021,6 +2521,45 @@
         private System.Windows.Forms.PictureBox pictureBoxChocobo;
         private System.Windows.Forms.Button buttonHext;
         private System.Windows.Forms.ToolTip toolTip;
+        private TabPage tabPageShopData;
+        private ListBox listBoxItemPrices;
+        private Label labelItemPrices;
+        private NumericUpDown numericItemPrice;
+        private Label labelItemPrice;
+        private NumericUpDown numericMateriaAPPriceMultiplier;
+        private Label labelMateriaAPPriceMultiplier;
+        private NumericUpDown numericMateriaPrice;
+        private Label labelMateriaPrice;
+        private Label labelMateriaPrices;
+        private ListBox listBoxMateriaPrices;
+        private GroupBox groupBoxShopInventory;
+        private ComboBox comboBoxShopIndex;
+        private Label labelShopIndex;
+        private Label labelShopItemCount;
+        private ComboBox comboBoxShopType;
+        private Label labelShopType;
+        private ComboBox comboBoxShopItem1;
+        private Label labelShopItems;
+        private NumericUpDown numericShopItemCount;
+        private ComboBox comboBoxShopItem10;
+        private ComboBox comboBoxShopItem9;
+        private ComboBox comboBoxShopItem8;
+        private ComboBox comboBoxShopItem7;
+        private ComboBox comboBoxShopItem6;
+        private ComboBox comboBoxShopItem5;
+        private ComboBox comboBoxShopItem4;
+        private ComboBox comboBoxShopItem3;
+        private ComboBox comboBoxShopItem2;
+        private NumericUpDown numericCSLimitLevel;
+        private Label labelCSLimitLevel;
+        private Label labelCSLimitBar;
+        private TrackBar trackBarCSLimitBar;
+        private NumericUpDown numericVLimitLevel;
+        private Label labelVLimitLevel;
+        private Label labelVLimitBar;
+        private TrackBar trackBarVLimitBar;
+        private CheckBox checkBoxCSAllowAll;
+        private CheckBox checkBoxVAllowAll;
     }
 }
 

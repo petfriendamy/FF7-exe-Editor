@@ -5,9 +5,9 @@ namespace Editor.Core
     public class EquippedMateria
     {
         private byte[] data = new byte[4];
-        private MateriaData materiaID;
+        private MateriaData? materiaID;
 
-        public MateriaData MateriaID
+        public MateriaData? MateriaID
         {
             get { return materiaID; }
             set

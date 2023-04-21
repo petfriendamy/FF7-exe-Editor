@@ -4,12 +4,10 @@ namespace Editor.Core
 {
     public enum ArmorSpecialPropterties { None, MaleOnly, FemaleOnly }
 
-    public class ArmorData
+    public class ArmorData : ItemData
     {
         private int materiaSlots;
 
-        public byte HexValue { get; }
-        public string ArmorName { get; }
         public int MateriaSlots
         {
             get { return materiaSlots; }
@@ -25,10 +23,8 @@ namespace Editor.Core
         public ArmorSpecialPropterties SpecialPropterties { get; }
 
         public ArmorData(byte hexValue, string name, int materiaSlots,
-                ArmorSpecialPropterties specialPropterties = ArmorSpecialPropterties.None)
+                ArmorSpecialPropterties specialPropterties = ArmorSpecialPropterties.None) :base (hexValue, name)
         {
-            HexValue = hexValue;
-            ArmorName = name;
             MateriaSlots = materiaSlots;
             SpecialPropterties = specialPropterties;
         }

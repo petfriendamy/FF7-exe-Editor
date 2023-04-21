@@ -2,15 +2,8 @@
 
 namespace Editor.Core
 {
-    public class AccessoryData
+    public class AccessoryData : ItemData
     {
-        public byte HexValue { get; }
-        public string AccessoryName { get; }
-
-        public AccessoryData(byte hexValue, string name)
-        {
-            HexValue = hexValue;
-            AccessoryName = name;
-        }
+        public AccessoryData(byte hexValue, string name) :base(hexValue, name) { }
     }
 }
